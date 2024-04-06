@@ -1,0 +1,163 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage[UTF8]{ctex}
+\usepackage{preamble}
+
+% 定义 example 环境
+\newcounter{example}[section] % 定义 example 计数器
+\newenvironment{example}{%
+    \refstepcounter{example}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Example \theexample:}\ %
+}{%
+    \par\medskip
+}
+
+% 定义 solution 环境
+\newcounter{solution}[section] % 定义 solution 计数器
+\newenvironment{solution}{%
+    \refstepcounter{solution}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Solution \thesolution:}\ %
+}{%
+    \par\medskip
+}
+
+\title{Chapter 1 事件与概率}
+
+\begin{document}
+
+\maketitle
+
+\section{概率空间}
+
+\subsection{代数、$\sigma$ 代数、单调类、$\pi$ 类、$\lambda$ 类}
+
+设 $\phi$ 为空间 $\Omega$ 的子集组成的非空类
+
+\begin{definition}[代数和 $\sigma$ 代数]
+    对有限交、取余封闭，则称 $\phi$ 为 $\Omega$ 上的代数 \\
+    若 $\phi$ 对无限交、取余封闭，则称 $\phi$ 为 $\Omega$ 上的 $\sigma$ 代数
+\end{definition}
+
+\begin{definition}[单调类]
+    若 $\phi$ 对单调极限封闭，则称 $\phi$ 为 $\Omega$ 上的单调类
+\end{definition}
+
+\begin{definition}[$\pi$ 类]
+    若 $\phi$ 对有限交封闭，则称 $\phi$ 为 $\Omega$ 上的 $\pi$ 类
+\end{definition}
+
+\begin{definition}[$\lambda$ 类]
+    若 $\phi$ 对真差运算、上极限封闭，则称 $\phi$ 为 $\Omega$ 上的 $\lambda$ 类
+\end{definition}
+
+代数、$\sigma$ 代数、单调类、$\pi$ 类、$\lambda$ 类之间有如下性质
+
+\begin{proposition}
+    \begin{enumerate}
+        \item $\sigma$ 代数 $\Rightarrow$ 代数 $\Rightarrow$ 单调类
+        \item 代数 and 单调类 $\Rightarrow$ $\sigma$ 代数
+        \item $\pi$ 类 and $\lambda$ 类 $\Rightarrow$ $\sigma$ 代数
+    \end{enumerate}
+\end{proposition}
+
+以及如下的单调类定理
+
+\begin{proposition}[单调类定理]\footnote{$m(\phi)$、$\sigma(\phi)$、$\lambda(\phi)$ 分别表示 $\phi$ 生成的最小单调类、最小 $\sigma$ 代数、最小 $\lambda$ 类}
+    \begin{enumerate}
+        \item 若 $\phi$ 为一代数，则 $m(\phi) = \sigma(\phi)$
+        \item 若 $\phi$ 为一 $\pi$ 类，则 $\lambda(\phi) = \sigma(\phi)$
+    \end{enumerate}
+\end{proposition}
+
+以及如下的另一个定理
+
+\begin{proposition}
+    设 $\phi$ 和 $\mathcal{F}$ 为 $\omega$ 中的两个集类，$\phi\subseteq \mathcal{F}$
+    \begin{enumerate}
+        \item 若 $\phi$ 为代数而 $\mathcal{F}$ 为单调类 $\Rightarrow$ $\sigma(\phi)\subseteq\mathcal{F}$
+        \item 若 $\phi$ 为 $\pi$ 类而 $\mathcal{F}$ 为 $\lambda$ 类 $\Rightarrow$ $\sigma(\phi)\subseteq\mathcal{F}$
+    \end{enumerate}
+\end{proposition}
+
+\subsection{概率空间}
+
+\begin{definition}[概率空间]
+    设 $\Omega$ 为样本空间，$\mathcal{F}$ 为 $\Omega$ 上的 $\sigma$ 代数，$P$ 为定义在 $\mathcal{F}$ 上的函数，若满足
+    \begin{enumerate}
+        \item $P(A)\geq 0,\forall A\in\mathcal{F}$
+        \item $P(\Omega) = 1$
+        \item 若 $A_1,A_2,\ldots\in\mathcal{F}$ 两两互斥，则 $P(\bigcup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)$
+    \end{enumerate}
+    则称 $(\Omega,\mathcal{F},P)$ 为概率空间
+\end{definition}
+
+\subsection{条件概率}
+
+\begin{definition}[条件概率]
+    设 $(\Omega,\mathcal{F},P)$ 为概率空间，$B\in\mathcal{F}$ 且 $P(B)>0$，则对任意 $A\in\mathcal{F}$，定义
+    \[ P(A|B) = \frac{P(AB)}{P(B)} \]
+    为在事件 $B$ 发生的条件下事件 $A$ 发生的条件概率
+\end{definition}
+
+条件概率有以下基本性质
+
+\begin{proposition}
+    设 $(\Omega,\mathcal{F},P)$ 为概率空间，$B\in\mathcal{F}$ 且 $P(B)>0$，则
+    \begin{enumerate}
+        \item 乘法定理：$P(A_1A_2\cdots A_n) = P(A_1)P(A_2|A_1)P(A_3|A_1A_2)\cdots P(A_n|A_1A_2\cdots A_{n-1})$
+        \item 全概率公式：$P(A) = \sum_{i} P(A|B_i)P(B_i)$，其中 $\{B_i\}$ 为 $\Omega$ 的一个分割
+        \item 贝叶斯公式：$P(B_k|A) = \frac{P(A|B_k)P(B_k)}{\sum_{i} P(A|B_i)P(B_i)}$，其中 $\{B_i\}$ 为 $\Omega$ 的一个分割
+    \end{enumerate}
+\end{proposition}
+
+可通过如下的例子来理解条件概率
+
+\begin{example}
+    某病误诊率为 $5\%$，记 $A = \{\text{验血为阳性}\}$，$B = \{\text{患病}\}$，则 $P(\overline{A}|B) = 0.95$，$P(A|\overline{B}) = 5\%$，若患病率 $0.5\%$，即 $P(B)=0.005$，求 $P(B|A)$
+\end{example}
+
+\begin{solution}
+    由贝叶斯公式
+    \[ P(B|A) = \frac{P(A|B)P(B)}{P(A|B)P(B) + P(A|\overline{B})P(\overline{B})} = \frac{0.95\times 0.005}{0.95\times 0.005 + 0.05\times 0.995} \approx 0.087 \]
+    也就是说，验血为阳性的人中，患病的概率为 $8.7\%$
+\end{solution}
+
+\subsection{独立性}
+
+\begin{definition}[独立性]
+    两个事件：$A$ 和 $B$ 独立可用下式表示
+    \begin{equation}
+        \text{独立} \Leftrightarrow P(AB) = P(A)P(B) \Leftrightarrow P(A|B) = P(A) \Leftrightarrow P(B|A) = P(B)
+    \end{equation}
+    有限多个事件：$n$ 个事件 $A_1,A_2,\ldots,A_n$ 独立可用下式表示\footnote{共有 $2^n-n-1$ 个式子}
+    \begin{equation}
+        \text{独立} \Leftrightarrow \forall i_1,i_2,\ldots,i_k\in\{1,2,\ldots,n\}, P(A_{i_1}A_{i_2}\cdots A_{i_k}) = P(A_{i_1})P(A_{i_2})\cdots P(A_{i_k})
+    \end{equation}
+    无限多个事件：设 $\{A_t\}\subseteq\mathcal{F}$，其中 $t\in T$，则定义 $\{A_t\}$ 独立为
+    \begin{equation}
+        \text{独立} \Leftrightarrow \forall n\in\mathbb{N},\forall t_1,t_2,\ldots,t_n\in T, A_{t_1}A_{t_2}\cdots A_{t_n} \text{ 独立}
+    \end{equation}        
+\end{definition}
+
+独立事件有如下性质
+
+\begin{proposition}
+    设 $n$ 个事件 $A_1,A_2,\ldots,A_n$ 独立，则
+    \begin{equation}
+        P(A_1A_2\cdots A_n) = P(A_1)P(A_2)\cdots P(A_n)
+    \end{equation}
+    从而进一步有
+    \begin{equation}
+        P(\cup_{i=1}^n A_i) = 1 - \prod_{i=1}^n (1-P(A_i))
+    \end{equation}
+\end{proposition}
+
+\appendix
+
+
+\bibliographystyle{unsrt}
+{\footnotesize\bibliography{./library}}
+
+
+\end{document}
