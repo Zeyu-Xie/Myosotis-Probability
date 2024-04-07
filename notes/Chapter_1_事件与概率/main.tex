@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\maketitle
+\maketitle\cite{杨振明2007}
 
 \section{概率空间}
 
@@ -125,7 +125,7 @@
 
 \subsection{独立性}
 
-\begin{definition}[独立性]
+\begin{definition}[事件独立性]
     两个事件：$A$ 和 $B$ 独立可用下式表示
     \begin{equation}
         \text{独立} \Leftrightarrow P(AB) = P(A)P(B) \Leftrightarrow P(A|B) = P(A) \Leftrightarrow P(B|A) = P(B)
@@ -152,6 +152,21 @@
         P(\cup_{i=1}^n A_i) = 1 - \prod_{i=1}^n (1-P(A_i))
     \end{equation}
 \end{proposition}
+
+\begin{definition}[试验独立性]
+    两个试验：设 $(\Omega_1, \mathcal{F}_1, P_1)$ 和 $(\Omega_2, \mathcal{F}_2, P_2)$ 为两个概率空间，若
+    \begin{equation}
+        \forall A_1\in\mathcal{F}_1, A_2\in\mathcal{F}_2, P_1(A_1)P_2(A_2) = P_1(A_1\times A_2)
+    \end{equation}
+    则称两个概率空间独立，其中 $A_1\times A_2$ 为 Descartes 乘积 \\
+    有限个试验：设 $(\Omega_i, \mathcal{F}_i, P_i),~ i=1,2,\ldots,n$ 为 $n$ 个概率空间，若
+    \begin{equation}
+        \forall A_i\in\mathcal{F}_i, i=1,2,\ldots,n, P_1(A_1)P_2(A_2)\cdots P_n(A_n) = P_1(A_1\times A_2\times\cdots\times A_n) 
+    \end{equation}
+    则称 $n$ 个概率空间独立
+\end{definition}
+
+注意：试验是否独立取决于乘积空间上概率测度的选择
 
 \appendix
 
