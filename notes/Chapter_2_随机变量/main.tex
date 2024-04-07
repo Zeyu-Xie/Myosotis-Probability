@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage[UTF8]{ctex}
+\usepackage{preamble}
+
+% 定义 example 环境
+\newcounter{example}[section] % 定义 example 计数器
+\newenvironment{example}{%
+    \refstepcounter{example}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Example \theexample:}\ %
+}{%
+    \par\medskip
+}
+
+% 定义 solution 环境
+\newcounter{solution}[section] % 定义 solution 计数器
+\newenvironment{solution}{%
+    \refstepcounter{solution}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Solution \thesolution:}\ %
+}{%
+    \par\medskip
+}
+
+\title{Chapter 2 随机变量}
+
+\begin{document}
+
+\maketitle\cite{杨振明2007}
+
+\section{随机变量}
+
+\begin{definition}[随机变量]
+    设 $(\Omega, \mathcal{F}, P)$ 为概率空间，$\xi = \xi(\omega): \Omega\to\R$，若
+    \begin{equation}
+        \{\omega: \xi(\omega) < x\} \in \mathcal{F}, \quad \forall x \in \R
+    \end{equation}
+    则称 $\xi$ 为随机变量
+\end{definition}
+
+注：$\xi(\omega)$ 可简写为 $\xi$，$\xi(\omega) < x$ 可简写为 $\xi < x$
+
+随机变量的逆变换有如下性质
+
+\begin{proposition}
+    设 $\xi$ 为随机变量，其逆变换为 $\xi^{-1}$，则
+    \begin{enumerate}
+        \item $\xi^{-1}(\R)=\Omega$
+        \item $\forall B\subseteq C \Rightarrow \xi^{-1}(B) \subseteq \xi^{-1}(C)$
+        \item $\xi^{-1}(\overline{B}) = \overline{\xi^{-1}(B)}$
+        \item $\xi$ 的 Borel 函数仍为随机变量
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[随机变量的结构]
+    \begin{enumerate}
+        \item $(\Omega, \mathcal{F}, P)$ 中 $E\in F$ 的示性函数 $\mathbb{1}_E(\omega)$ 为随机变量
+        \item 设 $(\Omega, \mathcal{F}, P)$ 为 R.V. $\Leftrightarrow$ $\exists$ 简单随机变量列 $\{\xi_n\}_{n\geq 1}$ $s.t. \lim\limits_{n\to\infty}\xi_n(\omega)=\xi(\omega), \forall\omega\in\Omega$（此处极限为逐点收敛）
+    \end{enumerate}
+\end{proposition}
+
+\section{随机分布（分布）}
+
+\begin{definition}[分布]
+    $(\Omega, \mathcal{F}, P)$ 为概率空间，$\mathbb{F}(B) = P\{\xi^{-1}(B)\} = P\{\xi\in B\}, \forall B\in\mathcal{B}$，则 $\mathbb{F}$ 为一个概率测度，称作 $\xi$ 的概率分布
+\end{definition}
+
+$\mathbb{F}$ 刻画了 $\xi$ 的分布规律
+
+\begin{definition}[相空间]
+    $(\R, \mathcal{B}, \mathbb{F})$ 为 $\xi$ 的相空间，$\mathbb{F}$ 与 $\xi$ 有关
+\end{definition}
+
+\begin{definition}[分布函数]
+    $F(x) = \mathbb{F}((-\infty, x]) = P\{\xi\leq x\}, \forall x\in\R$，称 $F(x)$ 为 $\xi$ 的分布函数
+\end{definition}
+
+分布函数具有以下性质
+
+\begin{proposition}
+    \begin{enumerate}
+        \item $F(x)$ 单调不减，即 $x_1\leq x_2 \Rightarrow F(x_1)\leq F(x_2)$   
+        \item $F(x)$ 左连续，即 $x_0\in\R \Rightarrow \lim\limits_{x\to x_0^-}F(x)=F(x_0)$
+        \item $F(-\infty) = \lim\limits_{x\to-\infty}F(x)=0, F(+\infty) = \lim\limits_{x\to+\infty}F(x)=1$
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}[离散型]
+    $(\Omega, \mathcal{F}, P)$ 为概率空间，$\xi$ 为随机变量，若 $\exists \{x_k\}, \{p_k\}$ 使得
+    \begin{equation}
+        p_k \geq 0, \sum_{k}p_k = 1, P\{\xi = x_k\} = p_k, \forall k
+    \end{equation}
+    则称 $\xi$ 为离散型随机变量，其密度阵
+    \begin{equation}
+        \begin{pmatrix}
+            x_1 & x_2 & \cdots & x_n \\
+            p_1 & p_2 & \cdots & p_n
+        \end{pmatrix}
+    \end{equation}
+\end{definition}
+
+
+
+\appendix
+
+
+\bibliographystyle{unsrt}
+{\footnotesize\bibliography{./library}}
+
+
+\end{document}
