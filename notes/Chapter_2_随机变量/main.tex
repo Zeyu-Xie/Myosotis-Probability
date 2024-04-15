@@ -237,6 +237,8 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
 
 \section{多维概率分布}
 
+\subsection{联合分布}
+
 \begin{definition}[联合分布函数]
     设 $(\Omega_1, \mathcal{F}_1, P_1)$ 与 $(\Omega_2, \mathcal{F}_2, P_2)$ 为概率空间，$\xi_1, \xi_2$ 为随机变量，$\xi_1: \Omega_1\to\R, \xi_2: \Omega_2\to\R$，则 $\xi_1, \xi_2$ 的联合分布函数为
     \begin{equation}
@@ -276,8 +278,78 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
 \end{definition}
 
 \begin{definition}[边缘分布]
-    
+    设 $(\xi, \eta)$ 有联合分布 $F(x, y)$，则 $\xi$ 的边缘分布为
+    \begin{equation}
+        F_1(x) = P\{\xi < x\} = F(x, +\infty)
+    \end{equation}
+    $\eta$ 的边缘分布为
+    \begin{equation}
+        F_2(y) = P\{\eta < y\} = F(+\infty, y)
+    \end{equation}
 \end{definition}
+
+\begin{definition}[离散型边缘分布]
+    \begin{equation}
+        P\{\xi=x_i\} = \sum_{j}p_{ij}, P\{\eta=y_j\} = \sum_{i}p_{ij}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[连续型边缘分布]
+    \begin{equation}
+        \begin{aligned}
+            p_1(x) = \int_{-\infty}^{+\infty}p(x, y)dy \\
+            p_2(y) = \int_{-\infty}^{+\infty}p(x, y)dx
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            F_1(x) = \int_{-\infty}^{x}p_1(u)du = \int_{-\infty}^{x}\int_{-\infty}^{+\infty}p(u, v)dudv \\
+            F_2(y) = \int_{-\infty}^{y}p_2(v)dv = \int_{-\infty}^{y}\int_{-\infty}^{+\infty}p(u, v)dvdu
+        \end{aligned}
+    \end{equation}
+\end{definition}
+
+\subsection{典型的二维分布}
+
+\begin{definition}[二维均匀分布]
+    设 $(\xi, \eta)$ 有联合密度函数
+    \begin{equation}
+        p(x, y) = \begin{cases}
+            \frac{1}{S}, & (x, y)\in D \\
+            0, & \text{其他}
+        \end{cases}
+    \end{equation}
+    其中 $D\in\mathcal{B}^2$ 为平面上的区域，满足 $0 < m(D) < +\infty$，$S = m(D)$ 为 $D$ 的面积，则称 $(\xi, \eta)$ 服从二维均匀分布
+\end{definition}
+
+\begin{definition}[二维正态分布]
+    设 $(\xi, \eta)$ 有联合密度函数
+    \begin{equation}
+        p(x, y) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\frac{1}{2(1-\rho^2)}\left[\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\right]\right\}
+    \end{equation}
+    其中 $\mu_1, \mu_2, \sigma_1, \sigma_2, \rho$ 为常数，$\sigma_1, \sigma_2 > 0, \rho\in(-1, 1)$，则称 $(\xi, \eta)$ 服从二维正态分布，记作 $(\xi, \eta)\sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$ 或 $\begin{pmatrix} \xi \\ \eta \end{pmatrix} \sim N \left( \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}, \begin{pmatrix} \sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2 \end{pmatrix} \right)$
+\end{definition}
+
+\begin{proposition}
+    二维正态分布的性质
+    \begin{enumerate}
+        \item $(\xi, \eta)$ 的边缘分布为
+        \begin{equation}
+            \begin{aligned}
+                \xi &\sim N(\mu_1, \sigma_1^2) \\
+                \eta &\sim N(\mu_2, \sigma_2^2)
+            \end{aligned}
+        \end{equation}
+        \item $(\xi, \eta)$ 的条件分布为
+        \begin{equation}
+            \begin{aligned}
+                \xi|\eta = y &\sim N\left(\mu_1+\rho\frac{\sigma_1}{\sigma_2}(y-\mu_2), \sigma_1^2(1-\rho^2)\right) \\
+                \eta|\xi = x &\sim N\left(\mu_2+\rho\frac{\sigma_2}{\sigma_1}(x-\mu_1), \sigma_2^2(1-\rho^2)\right)
+            \end{aligned}
+        \end{equation}
+        \item $(\xi, \eta)$ 的独立性与 $\rho$ 无关
+    \end{enumerate}
+\end{proposition}
 
 \appendix
 
