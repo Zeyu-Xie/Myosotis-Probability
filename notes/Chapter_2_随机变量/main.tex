@@ -237,6 +237,48 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
 
 \section{多维概率分布}
 
+\begin{definition}[联合分布函数]
+    设 $(\Omega_1, \mathcal{F}_1, P_1)$ 与 $(\Omega_2, \mathcal{F}_2, P_2)$ 为概率空间，$\xi_1, \xi_2$ 为随机变量，$\xi_1: \Omega_1\to\R, \xi_2: \Omega_2\to\R$，则 $\xi_1, \xi_2$ 的联合分布函数为
+    \begin{equation}
+        F(x_1, x_2) = P\{\xi_1 < x_1, \xi_2 < x_2\}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}[联合分布函数的性质]
+    \begin{enumerate}
+        \item $F(x_1, x_2)$ 对 $x_1, x_2$ 单调非降
+        \item $F(x_1, x_2)$ 对 $x_1, x_2$ 左连续
+        \item $F(-\infty, x_2) = F(x_1, -\infty) = 0$
+        \item $F(+\infty, +\infty) = 1$
+        \item $\Delta F = F(b_1, b_2) - F(a_1, b_2) - F(b_1, a_2) + F(a_1, a_2) \geq 0$，且 $\Delta F$ 表示落入 $[a_1, a_2)\times[b_1, b_2)$ 的概率
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}[离散型联合分布]
+    $(\xi, \eta)$ 有至多可列对 $(x_i, y_j)$，其联合分布为
+    \begin{equation}
+        P\{\xi=x_i, \eta=y_j\} = p_{ij} \geq 0, \sum_{i,j}p_{ij} = 1
+    \end{equation}
+\end{definition}
+
+\begin{definition}[连续型联合分布]
+    \begin{enumerate}
+        \item $(\xi, \eta)$ 有密度函数 $p(x, y)$，其分布函数为
+        \begin{equation}
+            F(x,y) = \int_{-\infty}^{x}\int_{-\infty}^{y}p(u, v)dudv
+        \end{equation}
+        其中 $p(x, y) \geq 0, \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}p(x, y)dxdy = 1$ 为密度函数
+        \item 对任意的 Borel 集合 $B\in\mathcal{B}^2$，有
+        \begin{equation}
+            P\{(\xi, \eta)\in B\} = \iint_Bp(x, y)dxdy
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[边缘分布]
+    
+\end{definition}
+
 \appendix
 
 
