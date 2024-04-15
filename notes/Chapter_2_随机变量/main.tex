@@ -147,12 +147,12 @@ $\xi\sim G(p)$
     \end{equation}
 \end{proposition}
 
-\subsection{Pascal 分布}
+\subsection{Pascal 分布（负二项分布）}
 
-$\xi\sim P(n,p)$
+$\xi\sim F(n,p)$
 
 \begin{definition}[Pascal 分布]
-    设独立重复试验，每次试验成功的概率为 $p$，失败的概率为 $1-p$，则 $\xi$ 为第 $n$ 次成功所需的试验次数，$\xi\sim P(n,p)$
+    设独立重复试验，每次试验成功的概率为 $p$，失败的概率为 $1-p$，则 $\xi$ 为第 $n$ 次成功所需的试验次数，$\xi\sim F(n,p)$
 \end{definition}
 
 \begin{proposition}[Pascal 分布的分布函数]
@@ -182,7 +182,7 @@ $\xi\sim N(\mu, \sigma^2)$
 \begin{definition}[正态分布]
     设 $\xi$ 服从正态分布 $N(\mu, \sigma^2)$，则其密度函数为
     \begin{equation}
-        p(\xi) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\xi-\mu)^2}{2\sigma^2}}
+        p(\xi) = \phi_{\mu,\sigma} (\xi) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\xi-\mu)^2}{2\sigma^2}}
     \end{equation}
 \end{definition}
 
@@ -194,24 +194,24 @@ $\xi\sim N(\mu, \sigma^2)$
 
 \subsection{Gamma 分布}
 
-$\xi\sim \Gamma(\alpha, \beta)$
+$\xi\sim \Gamma(\lambda, r)$
 
 \begin{definition}[Gamma 分布]
-    设 $\xi$ 服从 Gamma 分布 $\Gamma(\alpha, \beta)$，则其密度函数为
+    设 $\xi$ 服从 Gamma 分布 $\Gamma(\lambda, r)$，其中 $\lambda>0, r>0$，则其密度函数为
     \begin{equation}
-        p(\xi) = \frac{\beta^\alpha}{\Gamma(\alpha)}\xi^{\alpha-1}e^{-\beta\xi}
+        p(\xi) = \frac{\lambda^r}{\Gamma(r)}\xi^{r-1}e^{-\lambda\xi}
     \end{equation}
 \end{definition}
 
 \begin{proposition}[Gamma 分布的分布函数]
     \begin{equation}
-        F(x) = \frac{1}{\Gamma(\alpha)}\int_{0}^{x}\beta^\alpha t^{\alpha-1}e^{-\beta t}dt
+        F(x) = \frac{\lambda^r}{\Gamma(r)}\int_{0}^{x}t^{r-1}e^{-\lambda t}dt
     \end{equation}
 \end{proposition}
 
 \subsection{指数分布}
 
-$\xi\sim E(\lambda)$
+Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
 
 \begin{definition}[指数分布]
     设 $\xi$ 服从指数分布 $E(\lambda)$，则其密度函数为
@@ -225,6 +225,17 @@ $\xi\sim E(\lambda)$
         F(x) = \int_{0}^{x}\lambda e^{-\lambda t}dt
     \end{equation}
 \end{proposition}
+
+\subsection{各种分布的关系}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./src/1.png}
+    \caption{各种分布的关系}
+    \label{fig:1}
+\end{figure}
+
+\section{多维概率分布}
 
 \appendix
 
