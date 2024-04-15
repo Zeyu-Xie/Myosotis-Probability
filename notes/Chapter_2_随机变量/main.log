@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  15 APR 2024 12:18
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  15 APR 2024 13:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1258,7 +1258,18 @@ n/12 )$ \TU/FandolSong-Regular(0)/m/it/12 有 联 合 分 布 $\OML/lmm/m/it/12 
 (0)/m/it/12 ，|
  []
 
-[7] (./main.bbl) [8] (./main.aux)
+[7]
+Overfull \hbox (81.41054pt too wide) in paragraph at lines 469--470
+[]\T1/lmr/bx/n/12 Proposition 18. []\TU/FandolSong-Regular(0)/m/it/12 设 $\OT1/l
+mr/m/n/12 (\OML/lmm/m/it/12 ^^X[]; ^^X[]; []  ; ^^X[]\OT1/lmr/m/n/12 )$ \TU/Fan
+dolSong-Regular(0)/m/it/12 有 联 合 密 度 函 数 $\OML/lmm/m/it/12 p\OT1/lmr/m/n/12 (\O
+ML/lmm/m/it/12 x[]; x[]; []  ; x[]\OT1/lmr/m/n/12 )$\TU/FandolSong-Regular(0)/m
+/it/12 ，| $\OML/lmm/m/it/12 ^^Q[] \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 f[]\OT1/lm
+r/m/n/12 (\OML/lmm/m/it/12 ^^X[]; ^^X[]; []  ; ^^X[]\OT1/lmr/m/n/12 ) (\OML/lmm
+/m/it/12 j \OT1/lmr/m/n/12 =
+ []
+
+[8] (./main.bbl) [9] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1268,15 +1279,15 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1A4A356ED23A3E6D9225C3E776C3A9EE;2398.
+(rerunfilecheck)             Checksum: 06545F454C7F3A3771B05E104830BCFA;2768.
  ) 
 Here is how much of TeX's memory you used:
- 25763 strings out of 474878
- 526486 string characters out of 5762516
- 1936627 words of memory out of 5000000
- 47207 multiletter control sequences out of 15000+600000
+ 25796 strings out of 474878
+ 528442 string characters out of 5762516
+ 1938627 words of memory out of 5000000
+ 47240 multiletter control sequences out of 15000+600000
  622880 words of font info for 103 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
- 101i,9n,145p,1003b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,13n,145p,1003b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ./main.pdf (8 pages).
+Output written on ./main.pdf (9 pages).

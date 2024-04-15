@@ -427,7 +427,9 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
 
 \section{随机变量函数的分布}
 
-如下计算一个随机变量在连续单调函数下的分布
+由于离散型随机变量的分布函数是分段常数函数，故我们主要讨论连续型随机变量的函数分布。
+
+\subsection{一维情形}
 
 \begin{proposition}
     设 $\xi$ 为随机变量，密度函数 $p_{\xi}(x)$，$\eta = f(\xi)$，若 $y = f(x)$ 在 $(a, b)$ 上严格单调、连续，则反函数 $x = f^{-1}(y)$ 存在且连续，此时 $\eta$ 也为随机变量，其密度函数为
@@ -461,7 +463,55 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
     \end{equation}
 \end{solution}
 
-对于连续型随机变量在函数变换下的分布，我们有若干性质
+\subsection{多维情形}
+
+\begin{proposition}
+    设 $(\xi_1, \xi_2, \cdots, \xi_n)$ 有联合密度函数 $p(x_1, x_2, \cdots, x_n)$，$\eta_j = f_j(\xi_1, \xi_2, \cdots, \xi_n)\quad(j = 1,2, \cdots, n)$，若 $y_1, y_2, \cdots, y_n$ 满足方程组
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            y_1 &= f_1(x_1, x_2, \cdots, x_n) \\
+            y_2 &= f_2(x_1, x_2, \cdots, x_n) \\
+            \cdots \\
+            y_n &= f_n(x_1, x_2, \cdots, x_n)
+        \end{aligned}
+        \right.
+    \end{equation}
+    有唯一解
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            x_1 &= h_1(y_1, y_2, \cdots, y_n) \\
+            x_2 &= h_2(y_1, y_2, \cdots, y_n) \\
+            \cdots \\
+            x_n &= h_n(y_1, y_2, \cdots, y_n)
+        \end{aligned}
+        \right.
+    \end{equation}
+    且 $h_1, h_2, \cdots, h_n$ 对 $y_1, y_2, \cdots, y_n$ 均连续可导，则 $\eta_1, \eta_2, \cdots, \eta_n$ 为连续型随机变量，其联合密度函数为
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            &q(y_1, y_2, \cdots, y_n) = p(h_1, h_2, \cdots, h_n)|J|~&\text{若 $y_1, y_2, \cdots, y_n$ 有解} \\
+            &0~&\text{若 $y_1, y_2, \cdots, y_n$ 无解}
+        \end{aligned}
+        \right.
+    \end{equation}
+    其中
+    \begin{equation}
+        |J| = \left|\frac{\partial(x_1, x_2, \cdots, x_n)}{\partial(y_1, y_2, \cdots, y_n)}\right| = \begin{vmatrix}
+            \frac{\partial x_1}{\partial y_1} & \frac{\partial x_1}{\partial y_2} & \cdots & \frac{\partial x_1}{\partial y_n} \\
+            \frac{\partial x_2}{\partial y_1} & \frac{\partial x_2}{\partial y_2} & \cdots & \frac{\partial x_2}{\partial y_n} \\
+            \cdots & \cdots & \cdots & \cdots \\
+            \frac{\partial x_n}{\partial y_1} & \frac{\partial x_n}{\partial y_2} & \cdots & \frac{\partial x_n}{\partial y_n}
+        \end{vmatrix}
+    \end{equation}
+    为 Jacobi 矩阵的行列式
+\end{proposition}
+
+\subsection{常用性质}
+
+下面的性质描述了两个连续型随机变量的和、差、积、商的分布
 
 \begin{proposition}
     设 $\xi, \eta$ 为两个随机变量，联合密度函数为 $p_{\xi, \eta}(x, y)$（$\xi$ 和 $\eta$ 不一定独立）
@@ -496,6 +546,16 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
         \end{equation}
     \end{enumerate}
 \end{proposition}
+
+下面的性质描述了有限个随机变量的最大、最小值的分布
+
+\begin{proposition}
+    最大、最小值的分布：设 $\xi_1, \xi_2, \cdots, \xi_n$ 独立，且有相同的分布 $F(x)$ 或密度 $p(x)$，记 $\xi_{max} = \max\limits_{1\leq i\leq n}\xi_i, \xi_{min} = \min\limits_{1\leq i\leq n}\xi_i$，则 $\xi_{max}$ 和 $\xi_{min}$ 有联合分布
+    \begin{equation}
+        q(x, y) = n(n-1)[F(y)-F(x)]^{n-2}p(x)p(y) \quad (x < y)
+    \end{equation}
+\end{proposition}
+
 
 \appendix
 
