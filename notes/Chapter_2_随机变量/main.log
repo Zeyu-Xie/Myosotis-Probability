@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  15 APR 2024 11:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  15 APR 2024 12:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1238,7 +1238,27 @@ Overfull \hbox (40.23563pt too wide) detected at line 329
  = [] [] []
  []
 
-[5] (./main.bbl) [6] (./main.aux)
+[5]
+Overfull \hbox (48.40462pt too wide) in paragraph at lines 393--394
+[]\T1/lmr/bx/n/12 Definition 26 \T1/lmr/m/n/12 (\TU/FandolSong-Regular(0)/m/n/1
+2 有 限 个 随 机 变 量 的 独 立 性\T1/lmr/m/n/12 )\T1/lmr/bx/n/12 . []\TU/FandolSong-Regul
+ar(0)/m/it/12 设 $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^X[]; ^^X[]; []  ; ^^X[]\OT
+1/lmr/m/n/12 )$ \TU/FandolSong-Regular(0)/m/it/12 有 联 合 分 布 $\OML/lmm/m/it/12 F
+\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[]; x[]; []  ; x[]\OT1/lmr/m/n/12 )$\TU/Fand
+olSong-Regular(0)/m/it/12 ，|
+ []
+
+[6]
+Overfull \hbox (10.75316pt too wide) in paragraph at lines 401--402
+[]\T1/lmr/bx/n/12 Definition 27 \T1/lmr/m/n/12 (\TU/FandolSong-Regular(0)/m/n/1
+2 无 限 个 随 机 变 量 的 独 立 性\T1/lmr/m/n/12 )\T1/lmr/bx/n/12 . []\TU/FandolSong-Regul
+ar(0)/m/it/12 设 $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^X[]; ^^X[]; [] \OT1/lmr/m/
+n/12 )$ \TU/FandolSong-Regular(0)/m/it/12 有 联 合 分 布 $\OML/lmm/m/it/12 F\OT1/lmr
+/m/n/12 (\OML/lmm/m/it/12 x[]; x[]; [] \OT1/lmr/m/n/12 )$\TU/FandolSong-Regular
+(0)/m/it/12 ，|
+ []
+
+[7] (./main.bbl) [8] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1248,15 +1268,15 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A69E4D990588390A9884B71646F90F22;1878.
+(rerunfilecheck)             Checksum: 1A4A356ED23A3E6D9225C3E776C3A9EE;2398.
  ) 
 Here is how much of TeX's memory you used:
- 25719 strings out of 474878
- 523689 string characters out of 5762516
- 1934627 words of memory out of 5000000
- 47164 multiletter control sequences out of 15000+600000
- 619888 words of font info for 102 fonts, out of 8000000 for 9000
+ 25763 strings out of 474878
+ 526486 string characters out of 5762516
+ 1936627 words of memory out of 5000000
+ 47207 multiletter control sequences out of 15000+600000
+ 622880 words of font info for 103 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  101i,9n,145p,1003b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ./main.pdf (6 pages).
+Output written on ./main.pdf (8 pages).

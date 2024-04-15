@@ -351,6 +351,152 @@ Gamma 分布中 $r=1$ 的情形，$\xi\sim E(\lambda)$
     \end{enumerate}
 \end{proposition}
 
+\section{随机变量的独立性}\footnote{关于独立性，第一章涉及事件的独立性，本章则主要探讨随机变量的独立性，注意区分}
+
+\subsection{条件分布}
+
+\begin{definition}[条件分布]
+    设 $(\xi, \eta)$ 有联合分布 $F(x, y)$，设 $B\in \mathcal{B}$，则 $\xi$ 在条件 $\eta\in B$ 下的条件分布为
+    \begin{equation}
+        F(x|B) = P\{\xi < x|\eta\in B\} = \frac{P\{\xi < x, \eta\in B\}}{P\{\eta\in B\}}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[离散型条件分布]
+    \begin{equation}
+        P\{\xi=x_i|\eta=y_j\} = \frac{P\{\xi=x_i, \eta=y_j\}}{P\{\eta=y_j\}}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[连续型条件分布]
+    \begin{equation}
+        \begin{aligned}
+            p(x|y) &= \frac{p(x, y)}{p_2(y)} \\
+            F(x|y) &= \int_{-\infty}^{x}p(u|y)du
+        \end{aligned}
+    \end{equation}
+\end{definition}
+
+\subsection{随机变量独立性}
+
+根据条件分布的概念，我们可以定义随机变量的独立性
+
+\begin{definition}[两个随机变量的独立性]
+    设 $(\xi, \eta)$ 有联合分布 $F(x, y)$，$\xi$ 在条件 $\eta=y$ 下的条件分布为 $F(x|y)$，若
+    \begin{equation}
+        F(x, y) = F_1(x)F_2(y)
+    \end{equation}
+    则称 $\xi$ 与 $\eta$ 独立
+\end{definition}
+
+\begin{definition}[有限个随机变量的独立性]
+    设 $(\xi_1, \xi_2, \cdots, \xi_n)$ 有联合分布 $F(x_1, x_2, \cdots, x_n)$，若
+    \begin{equation}
+        F(x_1, x_2, \cdots, x_n) = F_1(x_1)F_2(x_2)\cdots F_n(x_n)
+    \end{equation}
+    则称 $\xi_1, \xi_2, \cdots, \xi_n$ 独立
+\end{definition}
+
+\begin{definition}[无限个随机变量的独立性]
+    设 $(\xi_1, \xi_2, \cdots)$ 有联合分布 $F(x_1, x_2, \cdots)$，若其中任意有限个随机变量独立，则称 $\xi_1, \xi_2, \cdots$ 独立
+\end{definition}
+
+\begin{proposition}\footnote{由此性质知，多个变量独立可以推出其中两两独立，但反之不成立}
+    关于有限个变量独立，以下两命题等价
+    \begin{enumerate}
+        \item $\xi_1, \xi_2, \cdots, \xi_n$ 独立
+        \item $\forall i_1, i_2, \cdots, i_k, k\leq n$，$\xi_{i_1}, \xi_{i_2}, \cdots, \xi_{i_k}$ 独立
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+    关于两个离散变量独立，以下两命题等价
+    \begin{enumerate}
+        \item $\xi, \eta$ 独立
+        \item $\forall x_i, y_j, P\{\xi=x_i, \eta=y_j\} = P_1\{\xi=x_i\}P_2\{\eta=y_j\}$（联合分布为边缘分布之积）
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+    关于 $\R$ 上的 Borel 函数 $f_1, f_2$，第一个命题成立可推出第二个命题成立
+    \begin{enumerate}
+        \item $\xi, \eta$ 独立
+        \item $\forall \text{Borel 函数} f_1, f_2, f_1(\xi), f_2(\eta)$ 独立
+    \end{enumerate}
+\end{proposition}
+
+\section{随机变量函数的分布}
+
+如下计算一个随机变量在连续单调函数下的分布
+
+\begin{proposition}
+    设 $\xi$ 为随机变量，密度函数 $p_{\xi}(x)$，$\eta = f(\xi)$，若 $y = f(x)$ 在 $(a, b)$ 上严格单调、连续，则反函数 $x = f^{-1}(y)$ 存在且连续，此时 $\eta$ 也为随机变量，其密度函数为
+    \begin{equation}
+        p_{\eta}(y) = p_{\xi}(f^{-1}(y))\left|\frac{d}{dy}f^{-1}(y)\right|
+    \end{equation}
+\end{proposition}
+
+\begin{example}
+    设 $\xi\sim N(0, 1)$，求 $\eta = \xi^2$ 的分布
+\end{example}
+
+\begin{solution}
+    若 $y < 0$，则不存在 $\xi$ 使得 $\xi^2 = y$，故 $p_{\eta}(y) = 0$ \\
+    下面考虑 $y \geq 0$ 的情况 \\
+    $f(x) = x^2$ 在 $[0, +\infty)$ 上严格单调、连续，反函数 $f^{-1}(y) = +\sqrt{y}$ 存在且连续 \\
+    从而
+    \begin{equation}
+        p_{\eta, 1}(y) = p_{\xi}(+\sqrt{y})\left|\frac{d}{dy}+\sqrt{y}\right| = \frac{1}{\sqrt{2\pi}}e^{-\frac{y}{2}}\frac{1}{2\sqrt{y}}
+    \end{equation}
+    由对称性，对于 $x < 0$
+    \begin{equation}
+        p_{\eta, 2}(y) = p_{\xi}(-\sqrt{y})\left|\frac{d}{dy}-\sqrt{y}\right| = \frac{1}{\sqrt{2\pi}}e^{-\frac{y}{2}}\frac{1}{2\sqrt{y}}
+    \end{equation}
+    故 $\eta$ 的分布为
+    \begin{equation}
+        p_{\eta}(y) = \begin{cases}
+            \frac{1}{\sqrt{2\pi y}}e^{-\frac{y}{2}}, & y > 0 \\
+            0, & y \leq 0
+        \end{cases}
+    \end{equation}
+\end{solution}
+
+对于连续型随机变量在函数变换下的分布，我们有若干性质
+
+\begin{proposition}
+    设 $\xi, \eta$ 为两个随机变量，联合密度函数为 $p_{\xi, \eta}(x, y)$（$\xi$ 和 $\eta$ 不一定独立）
+    \begin{enumerate}
+        \item 和的密度
+        \begin{equation}
+            \begin{aligned}
+                p_{\xi+\eta}(z) &= \int_{-\infty}^{+\infty}p_{\xi, \eta}(x, z-x)dx = \int_{-\infty}^{+\infty}p_{\xi, \eta}(z-y, y)dy \\
+                F_{\xi+\eta}(z) &= \int_{-\infty}^{+\infty}F_{\eta}(z-x)dF_{\xi}(x) = \int_{-\infty}^{+\infty}F_{\xi}(z-y)dF_{\eta}(y)
+            \end{aligned}
+        \end{equation}
+        \item 差的密度
+        \begin{equation}
+            \begin{aligned}
+                p_{\xi-\eta}(z) &= \int_{-\infty}^{+\infty}p_{\xi, \eta}(x, x-z)dx = \int_{-\infty}^{+\infty}p_{\xi, \eta}(z+y, y)dy \\
+                F_{\xi-\eta}(z) &= \int_{-\infty}^{+\infty}F_{\eta}(x-z)dF_{\xi}(x) = \int_{-\infty}^{+\infty}F_{\xi}(z+y)dF_{\eta}(y)
+            \end{aligned}
+        \end{equation}
+        \item 积的密度
+        \begin{equation}
+            \begin{aligned}
+                p_{\xi\eta}(z) &= \int_{-\infty}^{+\infty}p_{\xi, \eta}(x, \frac{z}{x})\frac{1}{|x|}dx = \int_{-\infty}^{+\infty}p_{\xi, \eta}(z\cdot y, y)\frac{1}{|y|}dy \\
+                F_{\xi\eta}(z) &= \int_{-\infty}^{+\infty}F_{\eta}(\frac{z}{x})dF_{\xi}(x) = \int_{-\infty}^{+\infty}F_{\xi}(z\cdot y)dF_{\eta}(y)
+            \end{aligned}
+        \end{equation}
+        \item 商的密度
+        \begin{equation}
+            \begin{aligned}
+                p_{\frac{\xi}{\eta}}(z) &= \int_{-\infty}^{+\infty}p_{\xi, \eta}(x, \frac{x}{z})\frac{1}{|x|}dx = \int_{-\infty}^{+\infty}p_{\xi, \eta}(z\cdot y, y)\frac{1}{|y|}dy \\
+                F_{\frac{\xi}{\eta}}(z) &= \int_{-\infty}^{+\infty}F_{\eta}(\frac{x}{z})dF_{\xi}(x) = \int_{-\infty}^{+\infty}F_{\xi}(z\cdot y)dF_{\eta}(y)
+            \end{aligned}
+        \end{equation}
+    \end{enumerate}
+\end{proposition}
+
 \appendix
 
 
