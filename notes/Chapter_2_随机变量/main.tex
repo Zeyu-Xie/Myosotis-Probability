@@ -99,7 +99,132 @@ $\mathbb{F}$ 刻画了 $\xi$ 的分布规律
     \end{equation}
 \end{definition}
 
+\begin{definition}[连续型]
+    $(\Omega, \mathcal{F}, P)$ 为概率空间，$\xi$ 为随机变量，若 $\exists p(x)$ 使得
+    \begin{equation}
+        p(x) \geq 0, \int_{-\infty}^{+\infty}p(x)dx = 1, P\{\xi=a\} = 0, \forall a
+    \end{equation}
+    则称 $\xi$ 为连续型随机变量，其密度函数为 $p(x)$
+\end{definition}
 
+不管是什么类型的随机变量，我们都有
+
+\begin{proposition}[Lebesgue 分解]
+    任意分布函数 $F(x)$ 可分解为
+    \begin{equation}
+        F(x) = c_1F_1(x) + c_2F_2(x) + c_3F_3(x)
+    \end{equation}
+    其中 $F_1(x)$ 为纯条约分布函数，$F_2(x)$ 为连续型分布函数，$F_3(x)$ 为奇异分布函数
+\end{proposition}
+
+\section{一些典型分布}
+
+\subsection{二项分布}
+
+$\xi\sim B(n,p)$
+
+\begin{definition}[二项分布]
+    设 $n$ 次独立重复试验，每次试验成功的概率为 $p$，失败的概率为 $1-p$，则 $\xi$ 为成功次数，$\xi\sim B(n,p)$
+\end{definition}
+
+\begin{proposition}[二项分布的分布函数]
+    \begin{equation}
+        P\{\xi=k\} = \binom{n}{k}p^k(1-p)^{n-k}
+    \end{equation}
+\end{proposition}
+
+\subsection{几何分布}
+
+$\xi\sim G(p)$
+
+\begin{definition}[几何分布]
+    设独立重复试验，每次试验成功的概率为 $p$，失败的概率为 $1-p$，则 $\xi$ 为第一次成功所需的试验次数，$\xi\sim G(p)$
+\end{definition}
+
+\begin{proposition}[几何分布的分布函数]
+    \begin{equation}
+        P\{\xi=k\} = (1-p)^{k-1}p
+    \end{equation}
+\end{proposition}
+
+\subsection{Pascal 分布}
+
+$\xi\sim P(n,p)$
+
+\begin{definition}[Pascal 分布]
+    设独立重复试验，每次试验成功的概率为 $p$，失败的概率为 $1-p$，则 $\xi$ 为第 $n$ 次成功所需的试验次数，$\xi\sim P(n,p)$
+\end{definition}
+
+\begin{proposition}[Pascal 分布的分布函数]
+    \begin{equation}
+        P\{\xi=k\} = \binom{k-1}{n-1}p^n(1-p)^{k-n}
+    \end{equation}
+\end{proposition}
+
+\subsection{Poisson 分布}
+
+$\xi\sim P(\lambda)$
+
+\begin{definition}[Poisson 分布]
+    设独立重复试验，每次试验成功的概率为 $\lambda/n$，失败的概率为 $1-\lambda/n$，则 $\xi$ 为成功次数，$\xi\sim P(\lambda)$
+\end{definition}
+
+\begin{proposition}[Poisson 分布的分布函数]
+    \begin{equation}
+        P\{\xi=k\} = \frac{\lambda^k}{k!}e^{-\lambda}
+    \end{equation}
+\end{proposition}
+
+\subsection{正态分布}
+
+$\xi\sim N(\mu, \sigma^2)$
+
+\begin{definition}[正态分布]
+    设 $\xi$ 服从正态分布 $N(\mu, \sigma^2)$，则其密度函数为
+    \begin{equation}
+        p(\xi) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\xi-\mu)^2}{2\sigma^2}}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}[正态分布的分布函数]
+    \begin{equation}
+        F(x) = \frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{x}e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt
+    \end{equation}
+\end{proposition}
+
+\subsection{Gamma 分布}
+
+$\xi\sim \Gamma(\alpha, \beta)$
+
+\begin{definition}[Gamma 分布]
+    设 $\xi$ 服从 Gamma 分布 $\Gamma(\alpha, \beta)$，则其密度函数为
+    \begin{equation}
+        p(\xi) = \frac{\beta^\alpha}{\Gamma(\alpha)}\xi^{\alpha-1}e^{-\beta\xi}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}[Gamma 分布的分布函数]
+    \begin{equation}
+        F(x) = \frac{1}{\Gamma(\alpha)}\int_{0}^{x}\beta^\alpha t^{\alpha-1}e^{-\beta t}dt
+    \end{equation}
+\end{proposition}
+
+\subsection{指数分布}
+
+$\xi\sim E(\lambda)$
+
+\begin{definition}[指数分布]
+    设 $\xi$ 服从指数分布 $E(\lambda)$，则其密度函数为
+    \begin{equation}
+        p(\xi) = \lambda e^{-\lambda\xi}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}[指数分布的分布函数]
+    \begin{equation}
+        F(x) = \int_{0}^{x}\lambda e^{-\lambda t}dt
+    \end{equation}
+\end{proposition}
 
 \appendix
 
