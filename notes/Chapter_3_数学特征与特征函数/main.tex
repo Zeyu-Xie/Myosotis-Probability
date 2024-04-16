@@ -30,6 +30,179 @@
 
 \section{数学期望}
 
+\subsection{定义}
+
+\begin{definition}[离散型随机变量的数学期望]
+    设离散型随机变量 $\xi$ 的概率分布为 $p_i = P\{\xi = x_i\}$，$i = 1, 2, \ldots$，若 $\sum_{i} |x_i|p_i < +\infty$，则称
+    \begin{equation}
+        E(\xi) = \sum_{i} x_i p_i
+    \end{equation}
+    为随机变量 $\xi$ 的数学期望。
+\end{definition}
+
+\begin{definition}[连续型随机变量的数学期望]
+    设连续型随机变量 $\xi$ 的概率密度为 $p(x)$，若 $\int_{-\infty}^{+\infty} |x|p(x) dx < +\infty$，则称
+    \begin{equation}
+        E(\xi) = \int_{-\infty}^{+\infty} x p(x) dx
+    \end{equation}
+    为随机变量 $\xi$ 的数学期望。
+\end{definition}
+
+\begin{definition}[数学期望的统一写法]
+    设 $\xi$ 为随机变量，则定义
+    \begin{equation}
+        E(\xi) = \int_{-\infty}^{+\infty} x dF(x)
+    \end{equation}
+    为随机变量 $\xi$ 的数学期望。
+\end{definition}
+
+\subsection{基本性质}
+
+\begin{proposition}[数学期望的性质]
+    设 $\xi, \eta$ 为随机变量，且都有有限的数学期望，则有
+    \begin{enumerate}
+        \item $E(c) = c$
+        \item $E(c\xi) = cE(\xi)$
+        \item $E(\xi + \eta) = E(\xi) + E(\eta)$
+        \item 若 $\xi \geq 0$，则 $E(\xi) \geq 0$
+        \item 若 $\xi \geq \eta$，则 $E(\xi) \geq E(\eta)$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Borel 函数下的数学期望]
+    设 $\xi$ 为随机变量，$f(x)$ 为 Borel 函数，则有
+    \begin{equation}
+        E[f(\xi)] = \int_{-\infty}^{+\infty} f(x) dF(x)
+    \end{equation}
+    此性质在多元随机变量的情况下也成立：设随机变量 $(\xi_1, \xi_2, \cdots, \xi_n)$ 有联合分布函数 $F(x_1, x_2, \cdots, x_n)$，$f$ 为 $n$ 元 Borel 函数，则有
+    \begin{equation}
+        E[f(\xi_1, \xi_2, \cdots, \xi_n)] = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} f(x_1, x_2, \cdots, x_n) dF(x_1, x_2, \cdots, x_n)
+    \end{equation}
+\end{proposition}
+
+注：以上性质说明，可直接用 $(\xi_1, \xi_2, \cdots, \xi_n)$ 的联合分布计算 $\eta = f(\xi_1, \xi_2, \cdots, \xi_n)$ 的数学期望，而不必先求出 $\eta$ 的分布。
+
+\subsection{独立随机变量的性质}
+
+\begin{proposition}[独立随机变量数学期望的性质]
+    设 $\xi, \eta$ 为独立随机变量，且 $\xi$ 与 $\eta$ 均可积，则乘积 $\xi\eta$ 也可积，且有
+    \begin{equation}
+        E(\xi\eta) = E(\xi)E(\eta)
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[独立随机变量数学期望的等价条件]
+    概率空间 $(\Omega, \mathcal{F}, P)$ 中的随机变量 $\xi, \eta$ 独立的充要条件是：对任意使得 $f(\xi)$ 和 $g(\eta)$ 可积的 Borel 函数 $f, g$，有
+    \begin{equation}
+        E[f(\xi)g(\eta)] = E[f(\xi)]E[g(\eta)]
+    \end{equation}
+\end{proposition}
+
+\subsection{极限性质}
+
+我们考虑
+
+\begin{equation}\label{eq:极限性质}
+    \lim\limits_{n\to\infty} E(\xi_n) = E(\lim\limits_{n\to\infty} \xi_n)
+\end{equation}
+
+成立的条件。
+
+\begin{proposition}[单调收敛定理]
+    设随机变量序列 $\{\xi_n\}$ 满足条件
+    \begin{equation}
+        0 \leq \xi_1(\omega) \leq \xi_2(\omega) \leq \cdots \leq \xi_n(\omega) ~ \uparrow ~ \xi(\omega), \quad \forall \omega \in \Omega
+    \end{equation}
+    则 \ref{eq:极限性质} 成立。
+\end{proposition}
+
+\begin{proposition}[Fatou 引理]
+    设 $\{\xi_n\}$ 是一随机变量序列
+    \begin{enumerate}
+        \item 若存在可积随机变量 $\sigma$，使得 $\xi_n \geq \sigma$, 则有
+        \begin{equation}
+            E(\lim\limits_{n\to\infty} \inf \xi_n) \leq \lim\limits_{n\to\infty} \inf E(\xi_n)
+        \end{equation}
+        \item 若存在可积随机变量 $\tau$，使得 $\xi_n \leq \tau$, 则有
+        \begin{equation}
+            E(\lim\limits_{n\to\infty} \sup \xi_n) \geq \lim\limits_{n\to\infty} \sup E(\xi_n)
+        \end{equation}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Lebesgue 控制收敛定理]
+    设 $\{\xi_n\}$ 是一随机变量序列，若存在可积随机变量 $\eta$ 使得 $|\xi_n| \leq \eta$，且 $\lim\limits_{n\to\infty} \xi_n = \xi$，则 \ref{eq:极限性质} 成立，即
+    \begin{equation}
+        \lim\limits_{n\to\infty} E(\xi_n) = E(\xi)
+    \end{equation}
+\end{proposition}
+
+\subsection{常见分布的期望}
+
+\begin{proposition}[Bernoulli 分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $p$ 的 Bernoulli 分布，则有
+    \begin{equation}
+        E(\xi) = p
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[二项分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $(n, p)$ 的二项分布，则有
+    \begin{equation}
+        E(\xi) = np
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[Possion 分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $\lambda$ 的 Possion 分布，则有
+    \begin{equation}
+        E(\xi) = \lambda
+    \end{equation}
+    证明：直接计算
+\end{proposition}
+
+\begin{proposition}[几何分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $p$ 的几何分布，则有
+    \begin{equation}
+        E(\xi) = \frac{1}{p}
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[均匀分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $(a, b)$ 的均匀分布，则有
+    \begin{equation}
+        E(\xi) = \frac{a + b}{2}
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[正态分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $(\mu, \sigma^2)$ 的正态分布，则有
+    \begin{equation}
+        E(\xi) = \mu
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[\( \chi^2 \) 分布的数学期望]
+    设随机变量 $\xi$ 服从参数为 $n$ 的 \( \chi^2 \) 分布，则有
+    \begin{equation}
+        E(\xi) = n
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[Cauchy 分布的数学期望]
+    设随机变量 $\xi$ 有密度函数
+    \begin{equation}
+        p(x) = \frac{1}{\pi(1 + x^2)}
+    \end{equation}
+    注意到
+    \begin{equation}
+        \int_{-\infty}^{+\infty} |x| p(x) dx = \int_{-\infty}^{+\infty} \frac{|x|}{\pi(1 + x^2)} dx = +\infty
+    \end{equation}
+    故 Cauchy 分布的数学期望不存在。
+\end{proposition}
+
+注：常见的分布中，数学期望不存在的仅有 Cauchy 分布。
+
 \section{方差}
 
 \appendix
