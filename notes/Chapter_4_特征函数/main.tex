@@ -31,6 +31,19 @@
 
 \section{母函数}
 
+\begin{definition}[母函数]
+    对任何实数列 $\{p_n\}$，如果幂级数
+    \begin{equation}
+        G(s) = \sum_{n=0}^{\infty} p_n s^n
+    \end{equation}
+    的收敛半径 $s_0 > 0$，则称 $G(s)$ 为 $\{p_n\}$ 的母函数。 \\
+    特别地，当 $\{p_n\}$ 为某非负整值随机变量 $\xi$ 的概率分布时，$G(s)$ 至少在区间 $[-1, 1]$ 上绝对收敛且一致收敛，此时有
+    \begin{equation}
+        G(s) = E(s^\xi)
+    \end{equation}
+    称此 $G(s)$ 为随机变量 $\xi$ 或其概率分布 $\{p_n\}$ 的母函数。
+\end{definition}
+
 \section{特征函数}
 
 \section{多元正态分布}

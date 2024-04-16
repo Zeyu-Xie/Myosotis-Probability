@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  16 APR 2024 13:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  16 APR 2024 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1469,7 +1469,23 @@ LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/m/sc' undefined
 (Font)              using `TU/FandolSong-Regular(0)/m/n' instead on input line 
 32.
 
-(./main.bbl) [1] (./main.aux)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmr' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 35.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) (./main.bbl)
+[1] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1482,11 +1498,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EADB5F8907575097E81E9F802B8443BD;381.
  ) 
 Here is how much of TeX's memory you used:
- 35397 strings out of 474878
- 730869 string characters out of 5762516
- 1923627 words of memory out of 5000000
- 56660 multiletter control sequences out of 15000+600000
- 595026 words of font info for 80 fonts, out of 8000000 for 9000
+ 35515 strings out of 474878
+ 734538 string characters out of 5762516
+ 1928627 words of memory out of 5000000
+ 56762 multiletter control sequences out of 15000+600000
+ 611332 words of font info for 97 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  101i,5n,145p,1003b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
