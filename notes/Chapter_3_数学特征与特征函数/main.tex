@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{amsart}
 \usepackage[UTF8]{ctex}
 \usepackage{preamble}
+\usepackage{tikz}
 
 % 定义 example 环境
 \newcounter{example}[section] % 定义 example 计数器
@@ -329,11 +330,45 @@
 \begin{definition}[相关系数]
     设随机变量 $\xi, \eta \in L^2$，则称
     \begin{equation}
-        \rho(\xi, \eta) = \frac{cov(\xi, \eta)}{\sqrt{D(\xi)}\sqrt{D(\eta)}}
+        \rho(\xi, \eta) = \frac{cov(\xi, \eta)}{\sqrt{D(\xi)}\sqrt{D(\eta)}} = E\left[\frac{\xi - E(\xi)}{\sqrt{D(\xi)}}\cdot\frac{\eta - E(\eta)}{\sqrt{D(\eta)}}\right]
     \end{equation}
     为随机变量 $\xi, \eta$ 的相关系数，相关系数是一个无单位的量。 \\
     当 $\rho(\xi, \eta) = 0$ 时，称 $\xi, \eta$ 不相关。
 \end{definition}
+
+\begin{proposition}[相关系数的范围]
+    对空间 $L^2$ 中的非退化随机变量 $\xi, \eta$ 而言，其相关系数 $\rho\in[-1, 1]$。 \\
+    $\rho = 1$ 当且仅当 $\eta^* = \xi^* \quad a.s.$ \\
+    $\rho = -1$ 当且仅当 $\eta^* = -\xi^* \quad a.s.$
+\end{proposition}
+
+\begin{proposition}
+    对于空间 $L^2$ 中的非退化随机变量，如下四个命题等价：
+    \begin{enumerate}
+        \item $\xi$ 和 $\eta$ 不相关
+        \item $cov(\xi, \eta) = 0$
+        \item $E(\xi\eta) = E(\xi)E(\eta)$
+        \item $D(\xi+\eta) = D(\xi) + D(\eta)$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[独立性和相关性的关系]
+    $\xi$ 和 $\eta$ 独立 $\Rightarrow$ $\xi$ 和 $\eta$ 不相关，反之不成立。
+\end{proposition}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \draw[fill=gray!20] (0,0) circle (1.5);
+        \draw[fill=gray!60] (-0.5, 0) circle (0.5);
+        \node at (-0.5, 0) {独立};
+        \node at (0.7, 0) {不相关};
+    \end{tikzpicture}
+    \caption{独立性和相关性的关系}
+    \label{fig:venn}
+\end{figure}
+
+
 
 \appendix
 
