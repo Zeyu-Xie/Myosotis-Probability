@@ -6,7 +6,7 @@
 # xelatex -output-directory=. ./main.tex
 # cd ..
 
-cd Chapter_3_数学特征与特征函数
+cd Chapter_4_特征函数
 xelatex -output-directory=. ./main.tex
 bibtex ./main.aux
 xelatex -output-directory=. ./main.tex

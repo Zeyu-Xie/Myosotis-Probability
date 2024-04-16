@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage[UTF8]{ctex}
+\usepackage{preamble}
+\usepackage{tikz}
+
+% 定义 example 环境
+\newcounter{example}[section] % 定义 example 计数器
+\newenvironment{example}{%
+    \refstepcounter{example}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Example \theexample:}\ %
+}{%
+    \par\medskip
+}
+
+% 定义 solution 环境
+\newcounter{solution}[section] % 定义 solution 计数器
+\newenvironment{solution}{%
+    \refstepcounter{solution}% 增加计数器
+    \par\medskip\noindent
+    \textbf{Solution \thesolution:}\ %
+}{%
+    \par\medskip
+}
+
+\title{Chapter 4 特征函数}
+
+\begin{document}
+
+\maketitle\cite{杨振明2007}
+
+\section{母函数}
+
+\section{特征函数}
+
+\section{多元正态分布}
+
+\appendix
+
+\bibliographystyle{unsrt}
+{\footnotesize\bibliography{./library}}
+
+
+\end{document}
