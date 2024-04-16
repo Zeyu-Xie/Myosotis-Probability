@@ -368,7 +368,45 @@
     \label{fig:venn}
 \end{figure}
 
+\section{条件数学期望}
 
+\begin{definition}[条件分布函数]
+    对任何有正概率的事件 $B$，定义随机变量 $\xi$ 在事件 $B$ 发生的条件下的条件分布函数为
+    \begin{equation}
+        F(x | B) = P\{\xi \leq x | B\} = \frac{P\{\xi \leq x, B\}}{P\{B\}}
+    \end{equation}
+    注意到对固定的 $B$，$F(x | B)$ 也是一个分布函数，因此可以考虑对它的 Lebesgue-Stieltjes 积分
+\end{definition}
+
+\begin{definition}[条件数学期望]
+    如果相应的积分绝对收敛，则称
+    \begin{equation}
+        E(\xi | B) = \int_{-\infty}^{+\infty} x dF(x | B)
+    \end{equation}
+    为随机变量 $\xi$ 在事件 $B$ 发生的条件下的条件数学期望。 \\
+    特别地，当 $B = \{\eta = y\}$ 时，称 $E(\xi | \eta = y)$ 为给定 $\eta = y$ 时 $\xi$ 的条件数学期望。
+\end{definition}
+
+\begin{definition}[给定 $\eta = y$ 的条件期望]
+    \begin{enumerate}
+        \item 若 $\eta$ 为离散型随机变量，则有
+        \begin{equation}
+            E(\xi | \eta = y_j) = \sum_{i} x_i P\{\xi = x_i | \eta = y_j\}
+        \end{equation}
+        \item 若 $\eta$ 为连续型随机变量，则有
+        \begin{equation}
+            E(\xi | \eta = y) = \int_{-\infty}^{+\infty} x p(x | \eta = y) dx
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
+当 $\xi$ 和 $\eta$ 独立时，条件分布等于无条件分布，即 $E(\xi | \eta = y) = E(\xi)$。
+
+若 $g$ 为 Borel 函数，则有
+
+\begin{equation}
+    E[g(\xi) | \eta = y] = \int_{-\infty}^{+\infty} g(x) dF(x | \eta = y)
+\end{equation}
 
 \appendix
 
