@@ -408,8 +408,83 @@
     E[g(\xi) | \eta = y] = \int_{-\infty}^{+\infty} g(x) dF(x | \eta = y)
 \end{equation}
 
-\appendix
+特别地，当 $\xi$ 平方可积时，取 $g(\xi) = [\xi-E(\xi|\eta = y)]^2$，则得到给定 $\eta = y$ 后 $\xi$ 的条件方差
 
+\begin{definition}[条件方差]
+    \begin{equation}
+        D(\xi | \eta = y) = E\left\{(\xi-E[\xi|\eta = y])^2|\eta = y\right\}
+    \end{equation}
+\end{definition}
+
+深入理解：条件数学期望是一个随机变量，它是一个关于 $\eta$ 的函数，当 $\eta$ 取定值 $y$ 时，条件数学期望 $E(\xi | \eta = y)$ 是一个确定的数，它是 $\xi$ 在给定 $\eta = y$ 的条件下的数学期望。
+
+\begin{proposition}[全期望公式]
+    设 $(\xi, \eta)$ 为联合分布的随机变量，$g(\xi)$ 为可积随机变量，则有
+    \begin{equation}
+        E\left\{E[g(\xi)|\eta]\right\} = E[g(\xi)]
+    \end{equation}
+    其含义为：条件期望（作为一个随机变量）的期望等于无条件期望。
+\end{proposition}
+
+\begin{example}[Baghdad 窃贼问题]
+    一个窃贼被关在有三个门的地牢中，其中
+    \begin{itemize}
+        \item 一号门通向自由，出这个门后走三个小时便返回地面
+        \item 二号门通向一个地道，在其中走五个小时后返回地牢
+        \item 三号门通向一个地道，在其中走七个小时后返回地牢
+    \end{itemize}
+    如果窃贼每次选择每个门的概率相等，求他为获得自由而走的平均时间。
+\end{example}
+
+\begin{solution}
+    设窃贼走出地牢的时间为 $\xi$，则由全期望公式有
+    \begin{equation}
+        E(\xi) = \frac{1}{3}E(\xi|1) + \frac{1}{3}E(\xi|2) + \frac{1}{3}E(\xi|3)
+    \end{equation}
+    其中
+    \begin{equation}
+        E(\xi|1) = 3, \quad E(\xi|2) = 5 + E(\xi), \quad E(\xi|3) = 7 + E(\xi)
+    \end{equation}
+    故有
+    \begin{equation}
+        E(\xi) = \frac{1}{3} \cdot 3 + \frac{1}{3} \cdot (5 + E(\xi)) + \frac{1}{3} \cdot (7 + E(\xi))
+    \end{equation}
+    解得 $E(\xi) = 15$，即窃贼走出地牢的平均时间为 15 小时。
+\end{solution}
+
+\begin{proposition}
+    设 $\xi$ 和 $\eta$ 是联合分布着的平方可积随机变量。如果以 $f(\eta)$ 作为 $\xi$ 的预测，其中 $f$ 是 Borel 函数，则使预测方差 $D(\xi - f(\eta))$ 最小的函数 $f$ 是 $f(\eta) = E(\xi | \eta)$。
+\end{proposition}
+
+\section{矩}
+
+\begin{definition}[矩]
+    如果 $E|\xi|^k<+\infty$，则称 $m_k = E(\xi^k)$ 为随机变量 $\xi$（及其分布）的 $k$ 阶原点矩，称 $c_k = E[(\xi - E(\xi))^k]$ 为随机变量 $\xi$（及其分布）的 $k$ 阶中心矩。
+\end{definition}
+
+\begin{proposition}[低阶原点矩]
+    \begin{enumerate}
+        \item 数学期望是一阶原点矩 $m_1$
+        \item 方差是二阶中心矩 $c_2$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+    根据
+    \begin{equation}
+        |\xi|^k \leq 1 + |\xi|^{k+1}
+    \end{equation}
+    可得：若随机变量 $\xi$ 的高阶矩有限，则其低阶矩也有限。
+\end{proposition}
+
+\begin{proposition}[原点矩和中心矩的关系]
+    \begin{enumerate}
+        \item $c_k = \sum_{i=0}^{k} \binom{k}{i} (-m_1)^{k-i}m_i$
+        \item $m_k = \sum_{i=0}^{k} \binom{k}{i} c_{k-i}m_1^i$
+    \end{enumerate}
+\end{proposition}
+
+\appendix
 
 \bibliographystyle{unsrt}
 {\footnotesize\bibliography{./library}}
