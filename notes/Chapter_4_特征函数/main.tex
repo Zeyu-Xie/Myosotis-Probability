@@ -128,6 +128,55 @@
     \end{equation}
 \end{definition}
 
+\begin{proposition}[各种分布的特征函数]
+    离散型随机变量的特征函数
+    \begin{table}[H]
+        \centering
+        \caption{离散型随机变量的特征函数}
+        \begin{tabular}{cc}
+            \toprule
+            分布类型 & 特征函数                            \\
+            \midrule
+            Bernoulli 分布     & $f(t) = q+pe^{it}$                             \\
+            二项分布           & $f(t) = (q+pe^{it})^n$                         \\
+            几何分布           & $f(t) = \frac{pe^{it}}{1-(1-p)e^{it}}$              \\
+            Pascal 分布       & $f(t) = \left[\frac{pe^{it}}{1-(1-p)e^{it}}\right]^n$ \\
+            Possion 分布       & $f(t) = e^{\lambda(e^{it}-1)}$                \\
+            \bottomrule
+        \end{tabular}
+        \label{chart:1}
+    \end{table}
+    连续型随机变量的特征函数
+    \begin{table}[H]
+        \centering
+        \caption{连续型随机变量的特征函数}
+        \begin{tabular}{cc}
+            \toprule
+            分布类型 & 特征函数                            \\
+            \midrule
+            正态分布           & $f(t) = e^{-\frac{1}{2}\sigma^2t^2}$ \\
+            Gamma 分布         & $f(t) = (1-\frac{it}{\lambda})^{-\alpha}$ \\
+            指数分布           & $f(t) = \frac{\lambda}{\lambda - it}$ \\
+            均匀分布           & $f(t) = \frac{e^{itb}-e^{ita}}{it(b-a)}$ \\
+            \bottomrule
+        \end{tabular}
+        \label{chart:2}
+    \end{table}
+\end{proposition}
+
+\begin{proposition}[特征函数基本性质]
+    \begin{enumerate}
+        \item $|f(t)|\leq f(0) = 1$
+        \item 共轭对称性：$f(-t) = \overline{f(t)}$
+        \item $f(t)$ 在 $t\in \R$ 上一致连续
+        \item 半正定性：任意 $n\geq 1$，任意 $n$ 个实数 $t_1, t_2, \cdots, t_n$，任意 $n$ 个复数 $a_1, a_2, \cdots, a_n$，有
+        \begin{equation}
+            \sum_{i=1}^{n} \sum_{j=1}^{n} a_i \overline{a_j} f(t_i - t_j) \geq 0
+        \end{equation}
+        \item $f_{a+b\xi}(t) = e^{iat}f_{\xi}(bt)$
+    \end{enumerate}
+\end{proposition}
+
 \section{多元正态分布}
 
 \appendix
