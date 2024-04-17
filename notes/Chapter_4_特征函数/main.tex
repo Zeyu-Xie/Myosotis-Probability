@@ -44,7 +44,89 @@
     称此 $G(s)$ 为随机变量 $\xi$ 或其概率分布 $\{p_n\}$ 的母函数。
 \end{definition}
 
+\begin{example}
+    求 Possion 分布和几何分布的母函数。
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}
+        \item Possion 分布的母函数
+        \begin{equation}
+            G(s) = \sum_{n=0}^{\infty} \frac{\lambda^n}{n!} e^{-\lambda} s^n = e^{\lambda(s-1)}
+        \end{equation}
+        收敛域为 $(-\infty, +\infty)$。
+        \item 几何分布的母函数
+        \begin{equation}
+            G(s) = \sum_{n=0}^{\infty} (1-p)^{n-1} p s^n = \frac{ps}{1-(1-p)s}
+        \end{equation}
+        收敛域为 $(-\frac{1}{1-p}, \frac{1}{1-p})$。
+    \end{enumerate}
+\end{solution}
+
+\begin{proposition}[分布由母函数唯一确定]
+    显然母函数由分布唯一确定，反过来说，由于 $G(s)$ 至少可以在区间 $(-1, 1)$ 内逐项求导，再令 $s=0$ 得
+    \begin{equation}
+        p_n = \frac{1}{n!} G^{(n)}(0)
+    \end{equation}
+    所以母函数 $G(s)$ 也可以由分布 $\{p_n\}$ 唯一确定。
+\end{proposition}
+
+\begin{proposition}[母函数与数学期望、方差的关系]
+    设非负整值随机变量 $\xi$ 的母函数为 $G(s)$，如果 $E(\xi)$ 和 $E(\xi^2)$ 有限，那么
+    \begin{equation}
+        \begin{aligned}
+            G'(1) &= E(\xi) \\
+            G''(1) &= E(\xi^2) - E(\xi)
+        \end{aligned}
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[独立和的母函数]
+    设 $\xi$ 和 $\eta$ 是两个独立的非负整值随机变量，分别有概率分布 $\{a_n\}$ 和 $\{b_n\}$，母函数为 $A(s)$ 和 $B(s)$，则 $\xi + \eta$ 的母函数为
+    \begin{equation}
+        C(s) = A(s)B(s)
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[随机多个非负整值随机变量之和的母函数]
+    设 $\{\xi_k\}$ 为 相互独立的非负整值随机变量序列，有共同的母函数 $G(s)$。若 $\eta$ 为另一非负整值随机变量，其母函数为 $F(s)$，那么当 $\eta$ 与每个 $\xi_k$ 均独立时，$\xi = \sum_{k=1}^\eta \xi_k$ 的母函数为
+    \begin{equation}
+        H(s) = F[G(s)]
+    \end{equation}
+\end{proposition}
+
 \section{特征函数}
+
+\begin{definition}[特征函数]
+    设 $F(x)$ 为 $\R = (-\infty, +\infty)$ 上的一个分布函数，称
+    \begin{equation}
+        f(t) = \int_{-\infty}^{+\infty} e^{itx} dF(x)
+    \end{equation}
+    为 $F(x)$ 的特征函数。
+\end{definition}
+
+\begin{definition}[随机变量的特征函数]
+    设 $F(x)$ 为随机变量 $\xi$ 的分布函数，则此 $f(t)$ 也称为 $\xi$ 的特征函数，此时有
+    \begin{equation}\label{eq:特征函数的期望}
+        f(t) = E(e^{it\xi})
+    \end{equation}
+\end{definition}
+
+注：对 $\forall ~ t,x\in \R$，总有 $|e^{itx}| = 1$，故 \ref{eq:特征函数的期望} 式右端积分的模不超过 $1$。因此对任意的概率分布，其特征函数唯一确定地存在。\footnote{这就比只对非负整值随机变量有定义的母函数好很多}
+
+\begin{definition}[离散型随机变量的特征函数]
+    设 $\xi$ 为离散型随机变量，其概率分布为 $\{p_n\}$，则其特征函数为
+    \begin{equation}
+        f(t) = \sum_{k=0}^{\infty} p_k e^{itx_k},\quad p_k = P\{\xi = x_k\}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[连续型随机变量的特征函数]
+    设 $\xi$ 为连续型随机变量，其概率密度函数为 $p(x)$，则其特征函数为
+    \begin{equation}
+        f(t) = \int_{-\infty}^{+\infty} p(x) e^{itx} dx
+    \end{equation}
+\end{definition}
 
 \section{多元正态分布}
 
