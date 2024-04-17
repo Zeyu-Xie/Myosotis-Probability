@@ -190,7 +190,93 @@
 \end{proposition}
 
 \begin{proposition}
-    设随机变量 
+    设随机变量 $\xi$ 的 $k$ 阶原点矩有限，则其特征函数 $k$ 阶可微，且有
+    \begin{equation}
+        f^{(k)}(t) = E\left[(i\xi)^k e^{it\xi}\right]
+    \end{equation}
+\end{proposition}
+
+\begin{proposition}[独立随机变量之和]
+    设 $\xi$ 和 $\eta$ 为两个独立的随机变量，其特征函数分别为 $f_{\xi}(t)$ 和 $f_{\eta}(t)$，则 $\xi + \eta$ 的特征函数为
+    \begin{equation}
+        f_{\xi+\eta}(t) = f_{\xi}(t)f_{\eta}(t)
+    \end{equation}
+    即独立随机变量之和的特征函数等于各自特征函数的乘积。
+\end{proposition}
+
+\section{反演公式与唯一性定理}
+
+\begin{lemma}
+    \begin{equation}
+        \lim\limits_{c\to+\infty} \int_0^c \frac{sin ax}{x} dx = \frac{\pi}{2} sgn\{a\}
+    \end{equation}
+\end{lemma}
+
+\begin{theorem}[反演公式]
+    设 $f(t)$ 为随机变量 $\xi$ 的特征函数，$f(t)$ 在 $t$ 的某个邻域内连续，且 $f(t)$ 在 $t=0$ 处连续，且 $f(0) = 1$，则 $\xi$ 的分布函数 $F(x)$ 可以由 $f(t)$ 唯一确定，且有
+    \begin{equation}
+        F(x) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} e^{-itx} f(t) dt
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}[唯一性定理]\label{thm:唯一性定理}
+    分布函数由其特征函数唯一确定。
+\end{theorem}
+
+\begin{theorem}
+    如果特征函数的模可积，即
+    \begin{equation}
+        \int_{-\infty}^{+\infty} |f(t)| dt < +\infty
+    \end{equation}
+    那么对应的分布函数 $F(x)$ 为连续型，且其密度函数为
+    \begin{equation}
+        p(x) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} e^{-itx} f(t) dt
+    \end{equation}
+\end{theorem}
+
+\begin{definition}[再生性]
+    设 $F(x;c)$ 为分布函数，其中 $c$ 为此概率分布的参数，如果有
+    \begin{equation}
+        F(x; c_1) * F(x; c_2) = F(x; c_1+c_2)
+    \end{equation}
+    则称此分布关于参数 $c$ 具有再生性。 \\
+    由 \ref{thm:唯一性定理} 可知，特征函数的乘积等于特征函数的和，所以再生性也可以由特征函数的乘积等于特征函数的和来刻画
+    \begin{equation}
+        f(t; c_1) f(t; c_2) = f(t; c_1+c_2)
+    \end{equation}
+\end{definition}
+
+\begin{definition}[多元特征函数]
+    定义 $n$ 元分布函数 $F(x_1, x_2, \cdots, x_n)$ 所对应的 $n$ 元特征函数为
+    \begin{equation}
+        f(t_1, t_2, \cdots, t_n) = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} e^{i(t_1x_1+t_2x_2+\cdots+t_nx_n)} dF(x_1, x_2, \cdots, x_n)
+    \end{equation}
+    如果 $F(x_1, x_2, \cdots, x_n)$ 是随机向量 $(\xi_1, \xi_2, \cdots, \xi_n)$ 的分布函数，则有
+    \begin{equation}
+        f(t_1, t_2, \cdots, t_n) = E\left[e^{i(t_1\xi_1+t_2\xi_2+\cdots+t_n\xi_n)}\right]
+    \end{equation}
+    此时称 $f$ 为随机向量 $(\xi_1, \xi_2, \cdots, \xi_n)$ 的联合特征函数，它在 $\R^n$ 上是一致连续的。
+\end{definition}
+
+\begin{proposition}[多元特征函数的性质]
+    \begin{enumerate}
+        \item $|f(t_1, t_2, \cdots, t_n)| \leq f(0, 0, \cdots, 0) = 1$
+        \item $f(-t_1, -t_2, \cdots, -t_n) = \overline{f(t_1, t_2, \cdots, t_n)}$
+        \item $f(t_1, t_2, \cdots, t_n)$ 在 $\R^n$ 上一致连续
+        \item 若混合矩 $E(\xi_1^{k_1}\xi_2^{k_2}\cdots\xi_n^{k_n})$ 有限，则可用 $(\xi_1, \xi_2, \cdots, \xi_n)$ 的联合特征函数在原点的矩阵求导，即有公式
+        \begin{equation}
+            f^{(k_1, k_2, \cdots, k_n)} = i^{-\sum_{j=1}^{n} k_j} \frac{\partial^{k_1+k_2+\cdots+k_n} f(t_1, t_2, \cdots, t_n)}{\partial t_1^{k_1} \partial t_2^{k_2} \cdots \partial t_n^{k_n}} \Bigg|_{t_1=t_2=\cdots=t_n=0}
+        \end{equation}
+        \item （反演公式）如果随机向量 $(\xi_1, \xi_2, \cdots, \xi_n)$ 取值于 $n$ 维区间 $\Delta = \{(x_1, x_2, \cdots, x_n) | a_i \leq x_i \leq b_i, i=1, 2, \cdots, n\}$ 的边界面上的概率为 0，则有
+        \begin{equation}
+            \begin{aligned}
+                &P\{(\xi_1, \xi_2, \cdots, \xi_n)\in\Delta\} \\
+                =&P\left\{\cap_{j=1}^{n} [a_j \leq \xi_j \leq b_j] \right\} \\
+                =&\lim\limits_{\substack{c_j\to+\infty \\ j = 1,2,\cdots,n}} \frac{1}{(2\pi)^n} \int_{-c_1}^{c_1} \int_{-c_2}^{c_2} \cdots \int_{-c_n}^{c_n} \prod_{j=1}^{n} \frac{e^{-it_ja_j}-e^{-it_jb_j}}{it_j} f(t_1, t_2, \cdots, t_n) dt_1 dt_2 \cdots dt_n
+            \end{aligned}
+        \end{equation}
+        \item 多元分布函数和特征函数也是一一对应的。
+    \end{enumerate}
 \end{proposition}
 
 \section{多元正态分布}
