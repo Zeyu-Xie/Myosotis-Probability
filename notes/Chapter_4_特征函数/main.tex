@@ -154,7 +154,7 @@
             \toprule
             分布类型 & 特征函数                            \\
             \midrule
-            正态分布           & $f(t) = e^{-\frac{1}{2}\sigma^2t^2}$ \\
+            正态分布           & $f(t) = e^{i\mu t-\frac{1}{2}\sigma^2t^2}$ \\
             Gamma 分布         & $f(t) = (1-\frac{it}{\lambda})^{-\alpha}$ \\
             指数分布           & $f(t) = \frac{\lambda}{\lambda - it}$ \\
             均匀分布           & $f(t) = \frac{e^{itb}-e^{ita}}{it(b-a)}$ \\
@@ -175,6 +175,22 @@
         \end{equation}
         \item $f_{a+b\xi}(t) = e^{iat}f_{\xi}(bt)$
     \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+    如果随机变量 $\xi$ 的各阶原点矩有限，那么对一切满足
+    \begin{equation}
+        \lim\limits_{n\to\infty} \frac{|t|^nE|\xi|^n}{n!} = 0
+    \end{equation}
+    的 $t$，$\xi$ 的特征函数 $f(t)$ 有展开式
+    \begin{equation}
+        f(t) = \sum_{k=0}^{\infty} \frac{(it)^k}{k!} E(\xi^k)
+    \end{equation}
+    该定理可用于计算符合某些条件的概率分布的特征函数。
+\end{proposition}
+
+\begin{proposition}
+    设随机变量 
 \end{proposition}
 
 \section{多元正态分布}

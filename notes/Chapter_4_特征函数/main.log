@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  17 APR 2024 09:14
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  17 APR 2024 12:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1497,7 +1497,7 @@ U/FandolSong-Regular(0)/m/it/12 个 复 数 $\OML/lmm/m/it/12 a[]; a[]; []  ; a[
 /FandolSong-Regular(0)/m/it/12 ，|
  []
 
-(./main.bbl) [3] (./main.aux)
+[3] (./main.bbl) [4] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1518,4 +1518,4 @@ Here is how much of TeX's memory you used:
  1509 hyphenation exceptions out of 8191
  101i,13n,145p,1003b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ./main.pdf (3 pages).
+Output written on ./main.pdf (4 pages).
