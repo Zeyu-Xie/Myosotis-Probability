@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  17 APR 2024 15:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2024.3.30)  18 APR 2024 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1512,7 +1512,21 @@ x[]; x[]; []  ; x[]\OT1/lmr/m/n/12 )\OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 a[] \OMS
 /lmsy/m/n/12 ^^T
  []
 
-(./main.bbl) [5] (./main.aux)
+
+Underfull \vbox (badness 1014) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (37.76926pt too wide) in paragraph at lines 312--313
+[]\T1/lmr/bx/n/12 Proposition 16 \T1/lmr/m/n/12 (\TU/FandolSong-Regular(0)/m/n/
+12 边 缘 分 布\T1/lmr/m/n/12 )\T1/lmr/bx/n/12 . []\TU/FandolSong-Regular(0)/m/it/12
+ 设 $\OML/lmm/m/it/12 n$ \TU/FandolSong-Regular(0)/m/it/12 元 正 态 分 布 $\OML/lmm/m
+/it/12 N\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; B\OT1/lmr/m/n/12 )$ \TU/FandolSon
+g-Regular(0)/m/it/12 的 $\OML/lmm/m/it/12 n$ \TU/FandolSong-Regular(0)/m/it/12 元
+ 随 机 向 量 为 $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^X[]; ^^X[]; []  ; ^^X[]\OT1/lmr
+/m/n/12 )$\TU/FandolSong-Regular(0)/m/it/12 ，|
+ []
+
+(./main.bbl) [6] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1525,12 +1539,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3D4658C2B7BA4C3646F78D93F4078AF5;522.
  ) 
 Here is how much of TeX's memory you used:
- 35655 strings out of 474878
- 741919 string characters out of 5762516
- 1936627 words of memory out of 5000000
- 56900 multiletter control sequences out of 15000+600000
+ 35661 strings out of 474878
+ 742052 string characters out of 5762516
+ 1937627 words of memory out of 5000000
+ 56906 multiletter control sequences out of 15000+600000
  614332 words of font info for 99 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
  101i,13n,145p,1003b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ./main.pdf (5 pages).
+Output written on ./main.pdf (6 pages).

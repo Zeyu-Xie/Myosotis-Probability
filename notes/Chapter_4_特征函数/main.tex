@@ -281,6 +281,45 @@
 
 \section{多元正态分布}
 
+\begin{definition}[多元正态分布]
+    设
+    \begin{equation}
+        \vec{a} = \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}, \quad B = \begin{pmatrix} b_{11} & b_{12} & \cdots & b_{1n} \\ b_{21} & b_{22} & \cdots & b_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ b_{n1} & b_{n2} & \cdots & b_{nn} \end{pmatrix}
+    \end{equation}
+    其中 $B$ 为 $n\times n$ 对称正定阵，则由
+    \begin{equation}
+        p(\vec{x}) = \frac{1}{(2\pi)^{n/2} |B|^{1/2}} \exp\left\{-\frac{1}{2} (\vec{x}-\vec{a})^T B^{-1} (\vec{x}-\vec{a})\right\}
+    \end{equation}
+    给出的 $p(\vec{x})$ 满足
+    \begin{equation}
+        p(\vec{x}) > 0, \quad \int_{\R^n}p(\vec{x}) d\vec{x} = 1
+    \end{equation}
+    以此 $p(\vec{x})$ 为密度函数的连续型分布称为 $n$ 元正态分布，记为 $N(\vec{a}, B)$。
+\end{definition}
+
+\begin{proposition}
+    $n$ 元正态分布的特征函数为
+    \begin{equation}\label{eq:多元正态分布的特征函数}
+        f(\vec{t}) = \exp\left\{i\vec{a}^T\vec{t} - \frac{1}{2} \vec{t}^T B \vec{t}\right\}
+    \end{equation}
+\end{proposition}
+
+\begin{definition}[多元正态分布的特征函数定义]
+    设 $n$ 元随机向量 $(\xi_1, \xi_2, \cdots, \xi_n)$ 的联合特征函数为 $f(\vec{t})$，如果 $f(\vec{t})$ 满足 \ref{eq:多元正态分布的特征函数} 式，则称 $(\xi_1, \xi_2, \cdots, \xi_n)$ 服从 $n$ 元正态分布 $N(\vec{a}, B)$。
+\end{definition}
+
+\begin{proposition}[边缘分布]
+    设 $n$ 元正态分布 $N(\vec{a}, B)$ 的 $n$ 元随机向量为 $(\xi_1, \xi_2, \cdots, \xi_n)$，则其任意 $k$ 个分量的联合分布称为 $k$ 元边缘分布，其特征函数为
+    \begin{equation}
+        f(\vec{t}) = \exp\left\{i\vec{a}_k^T\vec{t} - \frac{1}{2} \vec{t}^T B_k \vec{t}\right\}
+    \end{equation}
+    其中 $\vec{a}_k$ 为 $\vec{a}$ 的前 $k$ 个分量，$B_k$ 为 $B$ 的前 $k$ 行前 $k$ 列的子阵。
+\end{proposition}
+
+\begin{proposition}[数字特征]
+    $\vec{a}$ 为 $\vec{\xi}$ 的特征
+\end{proposition}
+
 \appendix
 
 \bibliographystyle{unsrt}
